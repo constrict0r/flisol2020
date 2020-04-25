@@ -1,4 +1,7 @@
 ---
+- name: Obtener información del sistema.
+  setup:
+
 - name: Decir hola.
   debug:
     msg: 'Hola mundo'
