@@ -1,0 +1,21 @@
+---
+- name: Primer Playbook.
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Decir hola.
+      debug:
+        msg: 'Hola mundo'
+
+    - name: Crear variable saludo.
+      set_fact:
+        saludo: 'Hola mundo!!'
+
+    - name: Imprimir variable saludo.
+      debug:
+        var: saludo
+
+    - name: Imprimir variable con msg.
+      debug:
+        msg: "{{ saludo }}, Hola Flisol!!"

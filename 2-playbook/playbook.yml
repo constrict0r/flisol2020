@@ -1,0 +1,4 @@
+---
+- name: Primer Playbook.
+  hosts: locahost
+  connection: local

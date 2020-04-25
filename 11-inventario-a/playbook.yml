@@ -1,0 +1,48 @@
+---
+- name: Primer Playbook.
+  hosts: all
+
+  tasks:
+    - name: Decir hola.
+      debug:
+        msg: 'Hola mundo'
+
+    - name: Crear variable saludo.
+      set_fact:
+        saludo: 'Hola mundo!!'
+
+    - name: Imprimir variable saludo.
+      debug:
+        var: saludo
+
+    - name: Imprimir variable con msg.
+      debug:
+        msg: "{{ saludo }}, Hola Flisol!!"
+
+    - name: Descargar archivo de internet.
+      get_url:
+        url: https://gitlab.com/geek.log/latverian-army/-/raw/master/LICENSE
+        dest: "{{ ansible_env.HOME }}"
+
+    - name: Agregar línea a archivo.
+      lineinfile:
+        line: 'Flisol 2019'
+        path: "{{ ansible_env.HOME }}/LICENSE"
+
+    - name: Modificar líneas en archivo.
+      replace:
+        path: "{{ ansible_env.HOME }}/LICENSE"
+        regexp: '2019'
+        replace: '2020'
+
+    - name: Iterar elementos.
+      debug:
+        var: item
+      with_items:
+        - uno
+        - dos
+        - tres
+        - cuatro
+
+    - name: Incluir tareas para Debian.
+      include_tasks: debian.yml

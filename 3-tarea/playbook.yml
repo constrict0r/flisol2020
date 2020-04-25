@@ -1,0 +1,9 @@
+---
+- name: Primer Playbook.
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Decir hola.
+      debug:
+        msg: 'Hola mundo'

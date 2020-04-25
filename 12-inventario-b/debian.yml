@@ -1,0 +1,4 @@
+---
+- name: Nombrar sistema operativo.
+  debug:
+    msg: 'Estoy en Debian'
